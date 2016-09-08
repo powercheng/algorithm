@@ -1,0 +1,46 @@
+388. Longest Absolute File Path
+
+//input : a string of file system
+//output: the longest length path
+public class Solution {
+    public int lengthLongestPath(String input) {
+        // invalid input
+        if(input==null||input.length()==0)
+            return 0;
+        // initial the data structures for using.    
+        int max=0;
+        String[] arr = input.split("\n");
+        Stack<Node> stack = new Stack<Node>();
+        
+        for(int i = 0; i < arr.length; i++){
+            String s = arr[i];
+            int count=0;
+            int j=0;
+            while(j < s.length()-1){
+                if(s.substring(j, j+1).equals("\t")){
+                	j++;  
+                  count++;
+                }else{
+                	break;
+                }
+            }
+            while(!stack.isEmpty() && count <=   stack.peek().level){
+                stack.pop();
+            }
+ 
+            if(s.contains(".")){
+                if(stack.isEmpty()){
+                    max = Math.max(max, s.length()-count);
+                }else{
+                    max = Math.max(max, stack.peek().len+s.length()-count);
+                }
+            }else{
+            	if(stack.isEmpty()){
+            		stack.push(new Node(count, s.length()-count+1));
+            	}else{
+            		stack.push(new Node(count, stack.peek().len + s.length()-count+1));
+            	}
+            }
+        }
+    }
+}
