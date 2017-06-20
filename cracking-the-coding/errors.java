@@ -1,0 +1,1 @@
+一个collection在自增长，千万不用for(int i; i < c.size()...), 好的习惯可以在外面定义。

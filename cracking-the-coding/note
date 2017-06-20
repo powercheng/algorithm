@@ -1,4 +1,31 @@
-parse : 语法分析
-This is one reason that XML is a standard data model to share and distribute data.
 
-permutation: 
+LinkedList implements it with a doubly-linked list. 
+1. 	operations that index into the list will traverse the list from the beginning or the end, whichever is closer.
+
+ArrayList implements it with a dynamically re-sizing array.
+ArrayList<E>, on the other hand, allow fast random read access, so you can grab any element in constant time. But adding or removing from anywhere but the end requires shifting all the latter elements over, either to make an opening or fill the gap. 
+
+So ArrayList get better, LinkedList add better.
+
+most Java programmers avoid Vector in favor of  ArrayList since they will probably synchronize explicitly anyway if they care about that.
+
+What Is an Exception?
+An exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions.
+
+Some of these exceptions are caused by user error, others by programmer error, and others by physical resources that have failed in some manner.
+
+Checked exceptions − A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions. These exceptions cannot simply be ignored at the time of compilation, the programmer should take care of (handle) these exceptions.
+
+For example, if you use FileReader class in your program to read data from a file, if the file specified in its constructor doesn't exist, then a FileNotFoundException occurs, and the compiler prompts the programmer to handle the exception.
+
+Unchecked exceptions − An unchecked exception is an exception that occurs at the time of execution. These are also called as Runtime Exceptions. These include programming bugs, such as logic errors or improper use of an API. Runtime exceptions are ignored at the time of compilation.
+
+Errors − These are not exceptions at all, but problems that arise beyond the control of the user or the programmer. Errors are typically ignored in your code because you can rarely do anything about an error. For example, if a stack overflow occurs, an error will arise. They are also ignored at the time of compilation.
+
+Advantage 1: Separating Error-Handling Code from "Regular" Code
+Exceptions provide the means to separate the details of what to do when something out of the ordinary happens from the main logic of a program. In traditional programming, error detection, reporting, and handling often lead to confusing spaghetti code. For example, consider the pseudocode method here that reads an entire file into memory.
+
+Advantage 2: Propagating Errors Up the Call Stack
+A second advantage of exceptions is the ability to propagate error reporting up the call stack of methods. Suppose that the readFile method is the fourth method in a series of nested method calls made by the main program: method1 calls method2, which calls method3, which finally calls readFile.
+
+
