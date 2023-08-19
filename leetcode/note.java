@@ -57,8 +57,29 @@ KMP algorithm: the kmp algorithm is a string-searching algorithm that searches f
 the word itself embodies sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.
 */
 /**
-manacher algorithm
-
+manacher algorithm: the longest palindromic substring
+use the information that has been calculated, reduce the computation.
 */
+	for (int i = 0; i < s.length(); i++) {
+            int currArmLen = 0;            
+            if (right > i) {
+                int symPoint = 2*center - i;
+                int symArm = armLens[symPoint];
+                int minArmLen = Math.min(symArm, right - i);
+                currArmLen = expand(s, i-minArmLen, i+minArmLen);
+            } else {
+                currArmLen = expand(s, i, i);
+            }
+            armLens[i] = currArmLen;
+            if (i+currArmLen > right) {
+                right = i+currArmLen;
+                center = i;
+            }
+            if (currArmLen*2 + 1 > end - start) {
+                start = i - currArmLen;
+                end = i + currArmLen;
+            }
+        }
+// if we consider to solve this problem by the way of dynamic programming, dp[i][j] represents the substring is palindromic or not
+// start from the length is 1, all dp[i][i] is true, then process the length is 2. for loop start from the length is 3 to end.
 
-	
