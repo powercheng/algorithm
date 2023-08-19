@@ -48,3 +48,17 @@ LinkedList partition(LinkedListNode node, int x) {
 		}
 	}
 } 
+//4. median of two sorted arrays, cut half of one array each time.
+//5. longest palindromic substring
+//10. regular expression matching
+
+/**
+KMP algorithm: the kmp algorithm is a string-searching algorithm that searches for occurences of a "word" W within a main "text string" S by employing the observation that a mismatch occurs, 
+the word itself embodies sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.
+*/
+/**
+manacher algorithm
+
+*/
+
+	
