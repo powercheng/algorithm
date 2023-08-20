@@ -83,3 +83,23 @@ use the information that has been calculated, reduce the computation.
 // if we consider to solve this problem by the way of dynamic programming, dp[i][j] represents the substring is palindromic or not
 // start from the length is 1, all dp[i][i] is true, then process the length is 2. for loop start from the length is 3 to end.
 
+public static Map<String, String> articleMapOne;
+static {
+    articleMapOne = new HashMap<>();
+    articleMapOne.put("ar01", "Intro to Map");
+    articleMapOne.put("ar02", "Some article");
+}
+
+//～ bit complement compute
+//~(-4) = 3
+//~(3) = -4
+//-4 + ~(-4) = -1	 all 1 in two bit
+
+
+
+
+
+
+
+
+
