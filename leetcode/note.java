@@ -95,8 +95,25 @@ static {
 //~(3) = -4
 //-4 + ~(-4) = -1	 all 1 in two bit
 
+//bucket sorting
 
-
+while(maxVal >= exp) {
+	int[] cnt = new int[10];
+	for (int i = 0; i < n; i++) {
+		int digit = (nums[i]/(int)exp) % 10;
+		cnt[digit]++;
+	}
+	for (int i = 0; i < 10; i++) {
+		cnt[i] += cnt[i-1];
+	}
+	for (int i = 0; i < n; i++) {
+		int digti = (nums[i]/(int)app) % 10;
+		buf[cnt[digit]-1] = nums[i];
+		cnt[digit]--;
+	}
+}
+System.copy
+	
 
 
 
