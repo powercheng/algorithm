@@ -112,11 +112,53 @@ while(maxVal >= exp) {
 		cnt[digit]--;
 	}
 }
-System.copy
-	
+
+// 233. Number of Digit One.   how many one, ten and hundreds
+// 239. sliding window maximum
+/**
+Input: nums = [1,3,-1,-3,5,3,6,7], k = 3
+Output: [3,3,5,5,6,7]
+Explanation: 
+Window position                Max
+---------------               -----
+[1  3  -1] -3  5  3  6  7       3
+ 1 [3  -1  -3] 5  3  6  7       3
+ 1  3 [-1  -3  5] 3  6  7       5
+ 1  3  -1 [-3  5  3] 6  7       5
+ 1  3  -1  -3 [5  3  6] 7       6
+ 1  3  -1  -3  5 [3  6  7]      7
+*/
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        int[] res = new int[nums.length-k+1];
+        PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
+            public int compare(int[] a, int[] b) {
+                return a[0] != b[0] ? b[0]-a[0] : b[1]-a[1];
+            }
+        });
+        int i = 0;
+        for (; i < k; i++) {
+            pq.offer(new int[]{nums[i], i});
+        }
+        res[0] = pq.peek()[0];
+        for (; i < nums.length; i++) {
+            pq.offer(new int[]{nums[i], i});
+            while (pq.peek()[1] <= i - k) {
+                pq.poll();
+            }
+            res[i-k+1] = pq.peek()[0];
+        }
+        return res;
+    }
+/**
+244. shortest word distance II
+map key is the word, the value is a list of the indexes
+find two words distance, just traverse the indexes
+*/
 
 
 
 
 
+
+	*/
 
